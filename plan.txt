@@ -1,0 +1,19 @@
+Features for User and Admin 
+    Features 
+        Sign Up
+        Login
+        Update and delete Account
+        Forgot and reset password
+        
+        View plans 
+        Make Purchase
+        Add Feedback
+        Payment recept download
+
+Features for admin only 
+    CRUD
+        Plan
+        User
+        Report on Payment
+        Purchase History 
+        
