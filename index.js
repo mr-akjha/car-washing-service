@@ -36,12 +36,12 @@ app.use((req,res,next) => {
 
 
 
-connection.sync({alter:true}).then((result) => {
-    // console.log(connection,result);
-    console.log("Model synced successfully !");
-}).catch((err) => {
-    console.log("Error in Model syncing!");
-});
+// connection.sync({alter:true}).then((result) => {
+//     // console.log(connection,result);
+//     console.log("Model synced successfully !");
+// }).catch((err) => {
+//     console.log("Error in Model syncing!");
+// });
 
 
 app.listen(3000);
