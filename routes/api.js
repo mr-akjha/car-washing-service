@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
+const app = express();
+
 const {signup,userList} = require('../controllers/userController');
 const {createPlan,planList} = require('../controllers/planController');
 
-
+const {signupValidations} = require('../request-validators/user-validations');
+const {validateSavePlan} = require('../request-validators/plan-validations');
 
 /** User routes  */
 /**
@@ -13,7 +16,7 @@ const {createPlan,planList} = require('../controllers/planController');
  * To register new user
  */
 
-router.post('/signup',signup);
+router.post('/signup',signupValidations(),signup);
 
 /**
  * Method GET
@@ -31,7 +34,7 @@ router.get('/user-list',userList);
  * URI /api//save-plan
  * To create a new plan 
  */
-router.post('/save-plan',createPlan);
+router.post('/save-plan',validateSavePlan(),createPlan);
 
 /**
  * Method GET
