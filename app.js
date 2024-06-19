@@ -8,13 +8,13 @@ const api = require('./routes/api');
 
 const connection = require('./utils/database');
 
+const {User} = require('./models');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname,'public')));
 
-const User = require('./models/user');
 
 /** Sync Models with tables if table not created  */
 
@@ -23,7 +23,6 @@ const sequelize = require('sequelize');
 
 
 app.get('/',(req,res,next) => {
-
     res.send(`<h2 style="text-align: center; color: #f70933;">Welcome AJ !</h2>`)
 });
 app.use('/api',api);
