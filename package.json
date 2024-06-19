@@ -2,10 +2,10 @@
   "name": "car-washing",
   "version": "1.0.0",
   "description": "Car washing services ",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon app.js"
   },
   "author": "Abhishek Jha",
   "license": "ISC",
@@ -14,7 +14,9 @@
     "express": "^4.19.2",
     "express-validator": "^7.1.0",
     "mysql2": "^3.10.0",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"

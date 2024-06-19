@@ -1,6 +1,8 @@
-const {savePlan,allPlans} = require('../app/planService');
+const {savePlan,allPlans,getPlan,update} = require('../app/planService');
 
 const { validationResult } = require('express-validator');
+
+const {Plan} = require("../models");
 
 const createPlan =  async (request,response,next) => {
 
@@ -20,7 +22,26 @@ const planList = async(request,response) =>{
     return response.status(200).json(plans);
 }
 
+const showPlan = async (request,response) => {
+    let plan  = await getPlan(request.params.planId);
+    return  response.status(200).json(plan);
+}
+
+const updatePlan = async(request,response) => {
+    let requestBody = request.body;
+    let planId = request.params.planId;
+    let plan = await update(planId,requestBody);
+
+    if (plan instanceof Plan) {
+        return response.status(200).json(plan);
+    }
+    
+    return response.status(500).json({error:"Plan Not Found !"});
+}
+
 module.exports = {
     createPlan,
-    planList
+    planList,
+    showPlan,
+    updatePlan
 }
